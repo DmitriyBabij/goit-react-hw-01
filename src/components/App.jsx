@@ -1,13 +1,24 @@
-import Product from './Product';
+import Profile from "./Profile";
+import FriendList from "../FriendList";
+import userData from "../userData.json";
+import friends from "../friends.json";
+import transactions from "../transactions.json";
+import TransactionHistory from "./TransactionHistory";
 
-export default function App() {
+const App = () => {
   return (
-    <div>
-      <h1>Best selling</h1>
-
-      <Product />
-      <Product />
-      <Product />
-    </div>
+    <>
+      <Profile
+        name={userData.username}
+        tag={userData.tag}
+        location={userData.location}
+        avatar={userData.avatar}
+        stats={userData.stats}
+      />
+      <FriendList friends={friends} />
+      <TransactionHistory items={transactions} />
+    </>
   );
-}
+};
+
+export default App;
